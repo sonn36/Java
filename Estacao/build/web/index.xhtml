@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Registro Metereológico</title>
+        <link rel="stylesheet" type="text/css" href="style/styles.css"></link>
+    </h:head>
+    <h:body>
+        <h:form id="frm">
+            
+            <h:panelGrid  columns="3">
+                
+                
+                <h:outputLabel id="lblTemperatura" class="titulos" value="Temperatura"></h:outputLabel>
+                <h:outputLabel id="lblUmidade" class="titulos" value="Umidade"></h:outputLabel>
+                <h:outputLabel id="lblPrecipitacao" class="titulos" value="Precipitação"></h:outputLabel>
+
+                <h:outputText id="otpTemperatura" class="valores" value="#{brgIndex.temperatura}"></h:outputText>
+                <h:outputText id="otpUmidade" class="valores" value="#{brgIndex.umidade}"></h:outputText>
+                <h:outputText id="otpPrecipitacao" class="valores" value="#{brgIndex.precipitacao}"></h:outputText>
+
+            </h:panelGrid>
+        </h:form>
+    </h:body>
+</html>
+

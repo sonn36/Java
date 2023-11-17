@@ -5,6 +5,7 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import modelo.Controle;
+import modelo.Estacao;
 import modelo.Estaticos;
 import modelo.Serial;
 
@@ -18,18 +19,35 @@ public class brgIndex
     private String precipitacao;
     private String resposta;
     
-    private void receberValores(){
-        precipitacao = Estaticos.precipitacao;
-        umidade = Estaticos.umidade;
-        temperatura = Estaticos.temperatura;
-    }
+    
     
 
     public brgIndex()
-    {      
+    {     
+        if(!Estaticos.coletaSerial){
+            Estaticos.coletaSerial = true;
+            Serial serial = new Serial();
+            Thread s1 = new Thread(serial);
+            s1.start();
+            
+            
+            
+        }
         Controle controle = new Controle();
-        receberValores();
+        
+        Estacao estacao  = new Estacao();
+        estacao = controle.pesquisarEstacao();
+        temperatura = String.valueOf(estacao.getTemperatura());
+        umidade = String.valueOf(estacao.getUmidade());
+        precipitacao = estacao.getPrecipitacao();
+                
+        
+        
+        
     }
+    
+    
+    
     
     
     
